@@ -1,0 +1,23 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/hitchpin-django-api-openapi.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - cookie
+  - header
+schemes:
+- name: cookieAuth
+  type: apiKey
+  in: cookie
+  parameter: sessionid
+  sources:
+  - openapi/hitchpin-django-api-openapi.json
+- name: tokenAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Token-based authentication with required prefix "Token"
+  sources:
+  - openapi/hitchpin-django-api-openapi.json
