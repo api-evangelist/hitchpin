@@ -1,0 +1,386 @@
+openapi: 3.1.1
+info:
+  title: Django instant-invoice-share API
+  description: The classical Django service that powers the marketplace and most invoicing functionality.
+  version: 2.0.0
+servers:
+- url: https://localhost
+  description: Development
+- url: https://apiv2.sandbox.hitchpin.com
+  description: Sandbox
+- url: https://apiv2.staging.hitchpin.com
+  description: Staging
+- url: https://apiv2.demo.hitchpin.com
+  description: Demo
+- url: https://apiv2.hitchpin.com
+  description: Production
+tags:
+- name: instant-invoice-share
+  description: Invoices shared with a buyer.
+paths:
+  /instant-invoice-share/{share_hash}/:
+    get:
+      operationId: retrieve_shared_instant_invoice
+      description: Used for viewing and paying shared InstantInvoices
+      parameters:
+      - in: path
+        name: share_hash
+        schema:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+        required: true
+      tags:
+      - instant-invoice-share
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json; version=v2:
+              schema:
+                $ref: '#/components/schemas/InstantInvoiceShare'
+          description: ''
+        '400':
+          content:
+            application/json; version=v2:
+              schema:
+                type: object
+                description: Error response
+                properties:
+                  detail:
+                    type: string
+                required:
+                - detail
+          description: ''
+        '404':
+          content:
+            application/json; version=v2:
+              schema:
+                type: object
+                description: Error response
+                properties:
+                  detail:
+                    type: string
+                required:
+                - detail
+          description: ''
+      x-hp-src:
+        filename: /code/instant_invoicing/api.py
+        linespan:
+          start: 146
+          end: 156
+        container: InstantInvoiceShareViewSet
+  /instant-invoice-share/{share_hash}/pay/:
+    post:
+      operationId: pay_instant_invoice
+      description: Action that allows a guest or user to pay an InstantInvoice.
+      parameters:
+      - in: path
+        name: share_hash
+        schema:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+        required: true
+      tags:
+      - instant-invoice-share
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InstantInvoiceShareRequest'
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json; version=v2:
+              schema:
+                $ref: '#/components/schemas/InstantInvoiceShare'
+          description: ''
+        '400':
+          content:
+            application/json; version=v2:
+              schema:
+                type: object
+                description: Error response
+                properties:
+                  detail:
+                    type: string
+                required:
+                - detail
+          description: ''
+        '404':
+          content:
+            application/json; version=v2:
+              schema:
+                type: object
+                description: Error response
+                properties:
+                  detail:
+                    type: string
+                required:
+                - detail
+          description: ''
+      x-hp-src:
+        filename: /code/instant_invoicing/api.py
+        linespan:
+          start: 165
+          end: 196
+        container: InstantInvoiceShareViewSet
+  /instant-invoice-share/{share_hash}/receipt/:
+    get:
+      operationId: get_instant_invoice_receipt
+      description: Action that returns a receipt if a paid InstantInvoice (via share).
+      parameters:
+      - in: path
+        name: share_hash
+        schema:
+          type: string
+          pattern: ^[0-9a-f]{32}$
+        required: true
+      tags:
+      - instant-invoice-share
+      security:
+      - tokenAuth: []
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json; version=v2:
+              schema:
+                $ref: '#/components/schemas/InstantInvoiceReceipt'
+          description: ''
+        '400':
+          content:
+            application/json; version=v2:
+              schema:
+                type: object
+                description: Error response
+                properties:
+                  detail:
+                    type: string
+                required:
+                - detail
+          description: ''
+        '404':
+          content:
+            application/json; version=v2:
+              schema:
+                type: object
+                description: Error response
+                properties:
+                  detail:
+                    type: string
+                required:
+                - detail
+          description: ''
+      x-hp-src:
+        filename: /code/instant_invoicing/api.py
+        linespan:
+          start: 249
+          end: 281
+        container: InstantInvoiceShareViewSet
+components:
+  schemas:
+    ShareableInstantInvoice:
+      type: object
+      properties:
+        title:
+          type: string
+        invoice_number:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        total_owed:
+          type: integer
+          readOnly: true
+        for_name:
+          type: string
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Nested'
+          readOnly: true
+        sender:
+          type: string
+          readOnly: true
+    InstantInvoiceReceipt:
+      type: object
+      properties:
+        invoice:
+          allOf:
+          - $ref: '#/components/schemas/ShareableInstantInvoice'
+          readOnly: true
+        payment_objects:
+          type: array
+          items:
+            type: object
+            properties:
+              amount:
+                type: integer
+                minimum: 1
+              last4:
+                type: string
+                pattern: '[0-9]{4}'
+              payment_method_name:
+                type: string
+            required:
+            - amount
+            - last4
+          readOnly: true
+        timestamp:
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          type: string
+          format: date-time
+          readOnly: true
+    InstantInvoiceShareRequest:
+      type: object
+      properties:
+        share_type:
+          enum:
+          - email
+          - sms
+          - link
+          - qr
+          - ''
+          type: string
+          description: '* `email` - Email
+
+            * `sms` - SMS
+
+            * `link` - Link
+
+            * `qr` - QR Code'
+          x-spec-enum-id: b538a5aac69dcfe7
+        share_contact_email:
+          type: string
+          format: email
+          writeOnly: true
+          default: ''
+        share_contact_phone:
+          type: string
+          writeOnly: true
+          default: ''
+    InstantInvoiceShare:
+      type: object
+      properties:
+        invoice:
+          allOf:
+          - $ref: '#/components/schemas/ShareableInstantInvoice'
+          readOnly: true
+        share_type:
+          enum:
+          - email
+          - sms
+          - link
+          - qr
+          - ''
+          type: string
+          description: '* `email` - Email
+
+            * `sms` - SMS
+
+            * `link` - Link
+
+            * `qr` - QR Code'
+          x-spec-enum-id: b538a5aac69dcfe7
+        share_hash:
+          type: string
+          readOnly: true
+        share_link:
+          type: string
+          readOnly: true
+        qr_code:
+          type: string
+          readOnly: true
+        is_paid:
+          type: boolean
+          readOnly: true
+        is_pending:
+          type: boolean
+          readOnly: true
+        expires:
+          type: string
+          format: date-time
+          readOnly: true
+        timestamp:
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          type: string
+          format: date-time
+          readOnly: true
+    Nested:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        attachment_type:
+          enum:
+          - document
+          - image
+          - text
+          type: string
+          description: '* `document` - Document (PDF)
+
+            * `image` - Image (jpg, png)
+
+            * `text` - Plain text'
+          x-spec-enum-id: 58640327c5314d15
+        image:
+          type: string
+          format: uri
+        document:
+          type: string
+          format: uri
+        text:
+          type: string
+        local_identifier:
+          type: string
+          maxLength: 256
+        timestamp:
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          type: string
+          format: date-time
+          readOnly: true
+        show_in_library:
+          type: boolean
+        user:
+          type: integer
+      required:
+      - user
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"
+x-speakeasy-retries:
+  strategy: backoff
+  backoff:
+    initialInterval: 500
+    maxInterval: 60000
+    maxElapsedTime: 3600000
+    exponent: 1.5
+  statusCodes:
+  - 5XX
+  retryConnectionErrors: true
+x-hp-version:
+  branch: feature/2758-instant-invoicing-models
+  commit_id: 130543d53be424bc7d33903988ae0e57d9d1ec32
+  deploy_env: dev
