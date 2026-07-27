@@ -1,0 +1,18 @@
+{
+  "provider": "hitchpin",
+  "sources": [
+    "hitchpin-instant-invoice-share-api-openapi.yml",
+    "hitchpin-instant-invoices-api-openapi.yml",
+    "hitchpin-rendering-api-openapi.yml"
+  ],
+  "outputs": [
+    "hitchpin-instant-invoice-share-api-openapi.yml",
+    "hitchpin-instant-invoices-api-openapi.yml",
+    "hitchpin-rendering-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

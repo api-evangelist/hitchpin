@@ -1,0 +1,47 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/hitchpin-django-api-openapi.json, openapi/hitchpin-receipt-rendering-openapi.json,
+  openapi/hitchpin-url-shortener-openapi.json
+notes: >-
+  Cross-cutting request/response semantics derived from HitchPin's public OpenAPI
+  service definitions. No idempotency-key contract is documented in the specs, so no
+  Idempotency pointer is emitted.
+authentication:
+  style: apiKey
+  schemes:
+  - name: tokenAuth
+    location: header
+    parameter: Authorization
+    format: 'Token <token>'
+  - name: cookieAuth
+    location: cookie
+    parameter: sessionid
+  reference: authentication/hitchpin-authentication.yml
+pagination:
+  style: limit-offset
+  request_params:
+  - limit
+  - offset
+  response_fields:
+  - count
+  - next
+  - previous
+  - results
+  evidence: openapi/hitchpin-django-api-openapi.json#PaginatedInstantInvoiceList
+idempotency:
+  supported: false
+  notes: No idempotency-key header or parameter is declared in the published specs.
+versioning:
+  style: media-type
+  detail: The Django API negotiates versions via a versioned media type (application/json; version=v2).
+error_envelope:
+  shape: custom
+  fields:
+  - type
+  - message
+  reference: errors/hitchpin-problem-types.yml
+events:
+  format: CloudEvents
+  evidence: json-schema/hitchpin-cloudevents.schema.json
+rate_limiting:
+  documented: false

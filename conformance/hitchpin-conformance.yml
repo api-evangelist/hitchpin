@@ -1,0 +1,26 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/hitchpin-django-api-openapi.json, json-schema/hitchpin-problem-details.schema.json,
+  json-schema/hitchpin-cloudevents.schema.json
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: All three published service definitions declare openapi 3.1.1.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    An RFC 9457 Problem Details JSON Schema is vendored in the API repo
+    (json-schema/hitchpin-problem-details.schema.json) but operation error responses
+    return a custom {type, message} envelope rather than application/problem+json.
+- id: cloudevents
+  conforms: true
+  evidence: A CloudEvents JSON Schema is vendored as a shared common schema (json-schema/hitchpin-cloudevents.schema.json).
+- id: pagination-limit-offset
+  conforms: true
+  evidence: PaginatedInstantInvoiceList uses count/next/previous/results with limit + offset params.
+- id: oauth2
+  conforms: false
+  evidence: Authentication is apiKey (bearer token + session cookie); no oauth2 security schemes are declared.
+- id: idempotency
+  conforms: false
+  evidence: No idempotency-key header or parameter is declared in the published specs.

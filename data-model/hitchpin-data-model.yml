@@ -1,0 +1,38 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/hitchpin-django-api-openapi.json
+notes: >-
+  Entity-relationship graph derived from OpenAPI component schema $ref links in the
+  HitchPin Django (marketplace / instant-invoicing) API. Relationships reflect schema
+  composition in the published spec.
+entities:
+- name: InstantInvoice
+  description: A shareable, payable invoice issued by a seller on the HitchPin marketplace.
+  relationships:
+  - type: has_many
+    target: Attachment
+    via: attachments
+- name: Attachment
+  description: A file attached to an instant invoice.
+  relationships: []
+- name: ShareableInstantInvoice
+  description: The public, share-safe projection of an instant invoice.
+  relationships:
+  - type: has_one
+    target: Nested
+    via: nested
+- name: InstantInvoiceShare
+  description: A share link record exposing a ShareableInstantInvoice to a payer.
+  relationships:
+  - type: has_one
+    target: ShareableInstantInvoice
+    via: invoice
+- name: InstantInvoiceReceipt
+  description: The receipt generated after an instant invoice is paid.
+  relationships:
+  - type: has_one
+    target: ShareableInstantInvoice
+    via: invoice
+- name: Nested
+  description: Nested detail object embedded in a shareable invoice.
+  relationships: []

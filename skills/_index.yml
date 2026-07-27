@@ -1,0 +1,14 @@
+generated: '2026-07-19'
+method: generated
+skills:
+- file: hitchpin-instant-invoicing.md
+  name: Create, share, and collect on a HitchPin instant invoice
+  api: openapi/hitchpin-django-api-openapi.json
+  operations:
+  - create_instant_invoices
+  - share_instant_invoice
+  - retrieve_shared_instant_invoice
+  - pay_instant_invoice
+  - get_instant_invoice_receipt
+  - list_instant_invoices
+  - void_instant_invoice

@@ -1,0 +1,27 @@
+# HitchPin
+
+> HitchPin is an online marketplace for the agriculture and rural economy, connecting farmers, ranchers, and rural businesses to buy and sell hay and forage, grain, cattle and livestock, farm and ranch equipment, trailers, land, and custom agricultural services. Sellers run branded storefronts, send instant invoices, and get paid; buyers browse and purchase across the US. HitchPin is backed by Foundry Group.
+
+## Marketplace
+- [HitchPin](https://www.hitchpin.com): Homepage and marketplace.
+- [How it works](https://www.hitchpin.com/how-it-works): Overview of buying and selling on HitchPin.
+- [Categories](https://www.hitchpin.com/categories): Product and service categories (hay, forage, grain, cattle, equipment, trailers, land, services).
+- [Browse](https://www.hitchpin.com/browse): Browse current listings.
+- [Storefront directory](https://www.hitchpin.com/storefront-directory): Directory of seller storefronts.
+- [Pricing](https://www.hitchpin.com/pricing): Marketplace pricing.
+- [Register](https://www.hitchpin.com/accounts/register): Create an account.
+- [Contact](https://www.hitchpin.com/company/contact): Contact HitchPin.
+- [Legal](https://www.hitchpin.com/legal): Terms of service and privacy policy.
+
+## APIs
+- [Django API (instant invoicing)](https://apiv2.hitchpin.com): Marketplace and instant-invoicing REST API. OpenAPI 3.1.
+- [Receipt Rendering Service](https://receipt-printing.prod.hitchpin.zone): Generates AOT receipts for secure retrieval. OpenAPI 3.1.
+- [URL Shortcode Service](https://hitchp.in): Short-URL creation with expiration. OpenAPI 3.1.
+
+## Specs
+- [Django API OpenAPI](https://raw.githubusercontent.com/api-evangelist/hitchpin/refs/heads/main/openapi/hitchpin-django-api-openapi.json)
+- [Receipt Rendering OpenAPI](https://raw.githubusercontent.com/api-evangelist/hitchpin/refs/heads/main/openapi/hitchpin-receipt-rendering-openapi.json)
+- [URL Shortcode OpenAPI](https://raw.githubusercontent.com/api-evangelist/hitchpin/refs/heads/main/openapi/hitchpin-url-shortener-openapi.json)
+
+## Source
+- [HitchPin on GitHub](https://github.com/HitchPin): Public repositories including hp-apis (API definitions) and public-docs.

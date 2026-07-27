@@ -1,0 +1,16 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for HitchPin Django API
+  version: 1.0.0
+extends: openapi/hitchpin-django-api-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-product: instant-invoicing
+    x-apievangelist-provider: hitchpin
+    x-apievangelist-source: https://github.com/HitchPin/hp-apis
+- target: $.info
+  update:
+    x-apievangelist-conventions: conventions/hitchpin-conventions.yml
+    x-apievangelist-errors: errors/hitchpin-problem-types.yml
+    x-apievangelist-authentication: authentication/hitchpin-authentication.yml

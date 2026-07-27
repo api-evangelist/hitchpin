@@ -1,8 +1,27 @@
 aid: hitchpin
 name: HitchPin
-description: 'HitchPin is a company surfaced as a portfolio company of foundry-group and added to the
-  API Evangelist network as a stub for enrichment. Sector: marketplace. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  HitchPin is an online marketplace for the agriculture and rural economy, connecting
+  farmers, ranchers, and rural businesses to buy and sell hay and forage, grain, cattle
+  and livestock, farm and ranch equipment, trailers, land, and custom agricultural
+  services. Sellers operate branded storefronts, send instant invoices, and collect
+  payment, while buyers browse and purchase listings across the United States. HitchPin
+  publishes public OpenAPI 3.1 definitions for its marketplace and instant-invoicing
+  service, a receipt-rendering service, and a URL-shortcode service on GitHub. The
+  company is backed by Foundry Group.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/u/38983146?v=4
 url: https://raw.githubusercontent.com/api-evangelist/hitchpin/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,11 +31,48 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
 - Marketplace
-apis: []
+- Agriculture
+- Livestock
+- Hay and Forage
+- Farm Equipment
+- Invoicing
+- Payments
+- Rural
+apis:
+- aid: hitchpin:hitchpin-instant-invoice-share-api
+  name: HitchPin instant-invoice-share API
+  description: Invoices shared with a buyer.
+  humanURL: https://github.com/HitchPin/hp-apis
+  baseURL: https://apiv2.hitchpin.com
+  tags:
+  - instant-invoice-share
+  properties:
+  - type: OpenAPI
+    url: openapi/hitchpin-instant-invoice-share-api-openapi.yml
+- aid: hitchpin:hitchpin-instant-invoices-api
+  name: HitchPin instant-invoices API
+  description: Invoices created by a seller.
+  humanURL: https://github.com/HitchPin/hp-apis
+  baseURL: https://apiv2.hitchpin.com
+  tags:
+  - instant-invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/hitchpin-instant-invoices-api-openapi.yml
+- aid: hitchpin:hitchpin-rendering-api
+  name: HitchPin rendering API
+  description: The rendering API from HitchPin — 3 operation(s) for rendering.
+  humanURL: https://github.com/HitchPin/hp-apis
+  baseURL: https://apiv2.hitchpin.com
+  tags:
+  - rendering
+  properties:
+  - type: OpenAPI
+    url: openapi/hitchpin-rendering-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +81,52 @@ maintainers:
 common:
 - type: Website
   url: https://www.hitchpin.com
+- type: GitHubOrganization
+  url: https://github.com/HitchPin
+- type: Documentation
+  url: https://github.com/HitchPin/public-docs
+- type: GettingStarted
+  url: https://www.hitchpin.com/how-it-works
+- type: Pricing
+  url: https://www.hitchpin.com/pricing
+- type: SignUp
+  url: https://www.hitchpin.com/accounts/register
+- type: Login
+  url: https://www.hitchpin.com/accounts/login
+- type: Support
+  url: https://www.hitchpin.com/company/contact
+- type: TermsOfService
+  url: https://www.hitchpin.com/legal
+- type: PrivacyPolicy
+  url: https://www.hitchpin.com/legal
+- type: Authentication
+  url: authentication/hitchpin-authentication.yml
+- type: AgenticAccess
+  url: agentic-access/hitchpin-agentic-access.yml
+- type: DomainSecurity
+  url: security/hitchpin-domain-security.yml
+- type: Conventions
+  url: conventions/hitchpin-conventions.yml
+- type: ErrorCatalog
+  url: errors/hitchpin-problem-types.yml
+- type: Conformance
+  url: conformance/hitchpin-conformance.yml
+- type: DataModel
+  url: data-model/hitchpin-data-model.yml
+- type: MCPServer
+  url: mcp/hitchpin-mcp.yml
+- type: AgentSkill
+  url: skills/hitchpin-instant-invoicing.md
+- type: Sandbox
+  url: sandbox/hitchpin-sandbox.yml
+- type: LLMsTxt
+  url: llms/hitchpin-llms.txt
+- type: JSONSchema
+  url: json-schema/hitchpin-problem-details.schema.json
+- type: JSONSchema
+  url: json-schema/hitchpin-cloudevents.schema.json
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

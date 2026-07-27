@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/hitchpin-django-api-openapi.json, openapi/hitchpin-receipt-rendering-openapi.json,
+  openapi/hitchpin-url-shortener-openapi.json
+format: custom
+notes: >-
+  Derived from the 4xx/5xx responses declared in HitchPin's public OpenAPI service
+  definitions (github.com/HitchPin/hp-apis). The Receipt Rendering and URL Shortcode
+  services return a custom {type, message} error envelope. The Django (marketplace /
+  instant-invoicing) API returns versioned application/json error bodies. A vendored
+  RFC 9457 Problem Details JSON Schema (json-schema/hitchpin-problem-details.schema.json)
+  ships in the same repo but is not yet wired into these operation responses.
+envelope:
+  fields:
+  - name: type
+    description: A machine-readable problem type identifier.
+  - name: message
+    description: A human-readable description of what went wrong.
+problems:
+- status: 400
+  title: Bad request
+  description: The request was malformed or failed validation.
+  media_type: application/json; version=v2
+  source_operations:
+  - openapi/hitchpin-django-api-openapi.json#retrieve_shared_instant_invoice
+  - openapi/hitchpin-django-api-openapi.json#pay_instant_invoice
+  - openapi/hitchpin-django-api-openapi.json#get_instant_invoice_receipt
+  - openapi/hitchpin-django-api-openapi.json#void_instant_invoice
+  - openapi/hitchpin-django-api-openapi.json#share_instant_invoice
+- status: 404
+  title: Not found
+  description: The referenced invoice, share, or rendered receipt does not exist.
+  media_type: application/json
+  source_operations:
+  - openapi/hitchpin-django-api-openapi.json#retrieve_shared_instant_invoice
+  - openapi/hitchpin-django-api-openapi.json#list_instant_invoices
+  - openapi/hitchpin-django-api-openapi.json#retrieve_instant_invoices
+  - openapi/hitchpin-receipt-rendering-openapi.json#CreateReceiptUrl
+  - openapi/hitchpin-url-shortener-openapi.json#ShortenUrl
+- status: 500
+  title: Rendering failure
+  description: The receipt could not be rendered.
+  media_type: application/json
+  source_operations:
+  - openapi/hitchpin-receipt-rendering-openapi.json#RenderReceipt

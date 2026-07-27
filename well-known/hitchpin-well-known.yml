@@ -1,0 +1,28 @@
+generated: '2026-07-19'
+method: probed
+host: https://www.hitchpin.com
+notes: >-
+  No genuine /.well-known discovery documents are published. www.hitchpin.com is a
+  single-page app that returns its index.html (text/html) for unknown paths, so the
+  200 responses below are SPA fallbacks, not real documents. security.txt returned 403.
+  No pointer is wired.
+documents:
+- path: /.well-known/security.txt
+  status: 403
+  genuine: false
+- path: /.well-known/openid-configuration
+  status: 200
+  content_type: text/html
+  genuine: false
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  content_type: text/html
+  genuine: false
+- path: /.well-known/api-catalog
+  status: 200
+  content_type: text/html
+  genuine: false
+- path: /.well-known/ai-plugin.json
+  status: 200
+  content_type: text/html
+  genuine: false

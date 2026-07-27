@@ -1,0 +1,46 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: openapi/hitchpin-django-api-openapi.json, openapi/hitchpin-receipt-rendering-openapi.json,
+  openapi/hitchpin-url-shortener-openapi.json
+notes: >-
+  Candidate MCP tool surface derived one-to-one from HitchPin's published OpenAPI
+  operations. HitchPin publishes no hosted/remote MCP server today; this is a governance
+  starting point, not an official server.
+server:
+  name: hitchpin
+  transport: http
+tools:
+- name: retrieve_shared_instant_invoice
+  description: Retrieve a shared instant invoice by share hash.
+  source_operation: openapi/hitchpin-django-api-openapi.json#retrieve_shared_instant_invoice
+- name: pay_instant_invoice
+  description: Pay a shared instant invoice.
+  source_operation: openapi/hitchpin-django-api-openapi.json#pay_instant_invoice
+- name: get_instant_invoice_receipt
+  description: Get the receipt for a shared instant invoice.
+  source_operation: openapi/hitchpin-django-api-openapi.json#get_instant_invoice_receipt
+- name: list_instant_invoices
+  description: List instant invoices.
+  source_operation: openapi/hitchpin-django-api-openapi.json#list_instant_invoices
+- name: create_instant_invoices
+  description: Create an instant invoice.
+  source_operation: openapi/hitchpin-django-api-openapi.json#create_instant_invoices
+- name: retrieve_instant_invoices
+  description: Retrieve an instant invoice by invoice number.
+  source_operation: openapi/hitchpin-django-api-openapi.json#retrieve_instant_invoices
+- name: void_instant_invoice
+  description: Void (revoke) an instant invoice.
+  source_operation: openapi/hitchpin-django-api-openapi.json#void_instant_invoice
+- name: share_instant_invoice
+  description: Create a share link for an instant invoice.
+  source_operation: openapi/hitchpin-django-api-openapi.json#share_instant_invoice
+- name: RenderReceipt
+  description: Render a receipt document ahead of time for secure retrieval.
+  source_operation: openapi/hitchpin-receipt-rendering-openapi.json#RenderReceipt
+- name: CreateReceiptUrl
+  description: Create a retrievable URL for a rendered receipt.
+  source_operation: openapi/hitchpin-receipt-rendering-openapi.json#CreateReceiptUrl
+- name: ShortenUrl
+  description: Create a short URL with optional expiration.
+  source_operation: openapi/hitchpin-url-shortener-openapi.json#ShortenUrl

@@ -1,0 +1,33 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/hitchpin-django-api-openapi.json, openapi/hitchpin-receipt-rendering-openapi.json,
+  openapi/hitchpin-url-shortener-openapi.json
+notes: >-
+  Environment separation captured from the servers[] declared in HitchPin's published
+  OpenAPI service definitions. HitchPin publishes no test-card / fixture reference; only
+  the non-production host matrix is recorded here (never invent test values).
+environments:
+- name: production
+  api: Django API (marketplace / instant-invoicing)
+  base_url: https://apiv2.hitchpin.com
+- name: sandbox
+  api: Django API (marketplace / instant-invoicing)
+  base_url: https://apiv2.sandbox.hitchpin.com
+- name: staging
+  api: Django API (marketplace / instant-invoicing)
+  base_url: https://apiv2.staging.hitchpin.com
+- name: demo
+  api: Django API (marketplace / instant-invoicing)
+  base_url: https://apiv2.demo.hitchpin.com
+- name: staging
+  api: Receipt Rendering Service
+  base_url: https://receipt-printing.staging.hitchpin.zone
+- name: production
+  api: Receipt Rendering Service
+  base_url: https://receipt-printing.prod.hitchpin.zone
+- name: staging
+  api: URL Shortcode Service
+  base_url: https://staging.hitchp.in
+- name: production
+  api: URL Shortcode Service
+  base_url: https://hitchp.in
