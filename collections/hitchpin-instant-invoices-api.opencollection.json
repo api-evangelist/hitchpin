@@ -1,0 +1,143 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Django instant-invoice-share instant-invoices API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "instant-invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "list_instant_invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/instant-invoices/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "create_instant_invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://localhost/instant-invoices/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "retrieve_instant_invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/instant-invoices/:invoice_number/",
+            "params": [
+              {
+                "name": "invoice_number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "void_instant_invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://localhost/instant-invoices/:invoice_number/revoke/",
+            "params": [
+              {
+                "name": "invoice_number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Action that allows the owner (seller) of an InstantInvoice to revoke it."
+        },
+        {
+          "info": {
+            "name": "share_instant_invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://localhost/instant-invoices/:invoice_number/share/",
+            "params": [
+              {
+                "name": "invoice_number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Action that allows the owner (seller) of an InstantInvoice to share it with a contact."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

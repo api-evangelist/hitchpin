@@ -1,0 +1,446 @@
+{
+  "item": [
+    {
+      "id": "1d0ecdc9-c9a8-48f1-a74c-4494150233e7",
+      "name": "rendering",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "23a44774-8266-4ab6-83e3-0a4ca081cfd4",
+          "name": "Register a pre-printed receipt so that the client can securely retrieve the PDF copy.",
+          "request": {
+            "name": "Register a pre-printed receipt so that the client can securely retrieve the PDF copy.",
+            "description": {
+              "content": "Get user data by its id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "render"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/pdf"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receipt\": {\n    \"invoice\": {\n      \"shareHash\": \"<string>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"invoiceNumber\": \"<string>\",\n      \"totalOwed\": {\n        \"currencyCode\": \"<string>\",\n        \"cents\": \"<integer>\"\n      },\n      \"forName\": \"<string>\",\n      \"attachments\": [\n        {\n          \"attachmentType\": \"<string>\",\n          \"document\": \"<uri>\",\n          \"user\": \"<integer>\",\n          \"id\": \"<integer>\",\n          \"localIdentifier\": \"<string>\",\n          \"timestamp\": \"<dateTime>\",\n          \"updated\": \"<dateTime>\",\n          \"showInLib\": \"<boolean>\"\n        },\n        {\n          \"attachmentType\": \"<string>\",\n          \"document\": \"<uri>\",\n          \"user\": \"<integer>\",\n          \"id\": \"<integer>\",\n          \"localIdentifier\": \"<string>\",\n          \"timestamp\": \"<dateTime>\",\n          \"updated\": \"<dateTime>\",\n          \"showInLib\": \"<boolean>\"\n        }\n      ],\n      \"sender\": \"<string>\"\n    },\n    \"paymentObjects\": [\n      {\n        \"amount\": {\n          \"currencyCode\": \"<string>\",\n          \"cents\": \"<integer>\"\n        },\n        \"paymentMethodName\": \"<string>\",\n        \"last4\": \"<string>\"\n      },\n      {\n        \"amount\": {\n          \"currencyCode\": \"<string>\",\n          \"cents\": \"<integer>\"\n        },\n        \"paymentMethodName\": \"<string>\",\n        \"last4\": \"<string>\"\n      }\n    ],\n    \"timestamp\": \"<dateTime>\",\n    \"updated\": \"<dateTime>\",\n    \"buyer\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"address\": {\n        \"street1\": \"<string>\",\n        \"street2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"postalCode\": \"<string>\"\n      }\n    },\n    \"seller\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"address\": {\n        \"street1\": \"<string>\",\n        \"street2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"postalCode\": \"<string>\"\n      },\n      \"storefrontName\": \"<string>\"\n    }\n  },\n  \"format\": \"<string>\",\n  \"style\": \"modern\",\n  \"branding\": {\n    \"logoUrl\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a1969602-0d2c-419b-8d94-b055ed51559b",
+              "name": "Response that can be used to retrieve the receipt PDF.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "render"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/pdf",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"receipt\": {\n    \"invoice\": {\n      \"shareHash\": \"<string>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"invoiceNumber\": \"<string>\",\n      \"totalOwed\": {\n        \"currencyCode\": \"<string>\",\n        \"cents\": \"<integer>\"\n      },\n      \"forName\": \"<string>\",\n      \"attachments\": [\n        {\n          \"attachmentType\": \"<string>\",\n          \"document\": \"<uri>\",\n          \"user\": \"<integer>\",\n          \"id\": \"<integer>\",\n          \"localIdentifier\": \"<string>\",\n          \"timestamp\": \"<dateTime>\",\n          \"updated\": \"<dateTime>\",\n          \"showInLib\": \"<boolean>\"\n        },\n        {\n          \"attachmentType\": \"<string>\",\n          \"document\": \"<uri>\",\n          \"user\": \"<integer>\",\n          \"id\": \"<integer>\",\n          \"localIdentifier\": \"<string>\",\n          \"timestamp\": \"<dateTime>\",\n          \"updated\": \"<dateTime>\",\n          \"showInLib\": \"<boolean>\"\n        }\n      ],\n      \"sender\": \"<string>\"\n    },\n    \"paymentObjects\": [\n      {\n        \"amount\": {\n          \"currencyCode\": \"<string>\",\n          \"cents\": \"<integer>\"\n        },\n        \"paymentMethodName\": \"<string>\",\n        \"last4\": \"<string>\"\n      },\n      {\n        \"amount\": {\n          \"currencyCode\": \"<string>\",\n          \"cents\": \"<integer>\"\n        },\n        \"paymentMethodName\": \"<string>\",\n        \"last4\": \"<string>\"\n      }\n    ],\n    \"timestamp\": \"<dateTime>\",\n    \"updated\": \"<dateTime>\",\n    \"buyer\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"address\": {\n        \"street1\": \"<string>\",\n        \"street2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"postalCode\": \"<string>\"\n      }\n    },\n    \"seller\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"address\": {\n        \"street1\": \"<string>\",\n        \"street2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"postalCode\": \"<string>\"\n      },\n      \"storefrontName\": \"<string>\"\n    }\n  },\n  \"format\": \"<string>\",\n  \"style\": \"modern\",\n  \"branding\": {\n    \"logoUrl\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/pdf"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "23d91434-8730-4dc0-9c16-3a38a9bb184c",
+              "name": "Could not render receipt.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "render"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Accept",
+                    "value": "application/pdf",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"receipt\": {\n    \"invoice\": {\n      \"shareHash\": \"<string>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"invoiceNumber\": \"<string>\",\n      \"totalOwed\": {\n        \"currencyCode\": \"<string>\",\n        \"cents\": \"<integer>\"\n      },\n      \"forName\": \"<string>\",\n      \"attachments\": [\n        {\n          \"attachmentType\": \"<string>\",\n          \"document\": \"<uri>\",\n          \"user\": \"<integer>\",\n          \"id\": \"<integer>\",\n          \"localIdentifier\": \"<string>\",\n          \"timestamp\": \"<dateTime>\",\n          \"updated\": \"<dateTime>\",\n          \"showInLib\": \"<boolean>\"\n        },\n        {\n          \"attachmentType\": \"<string>\",\n          \"document\": \"<uri>\",\n          \"user\": \"<integer>\",\n          \"id\": \"<integer>\",\n          \"localIdentifier\": \"<string>\",\n          \"timestamp\": \"<dateTime>\",\n          \"updated\": \"<dateTime>\",\n          \"showInLib\": \"<boolean>\"\n        }\n      ],\n      \"sender\": \"<string>\"\n    },\n    \"paymentObjects\": [\n      {\n        \"amount\": {\n          \"currencyCode\": \"<string>\",\n          \"cents\": \"<integer>\"\n        },\n        \"paymentMethodName\": \"<string>\",\n        \"last4\": \"<string>\"\n      },\n      {\n        \"amount\": {\n          \"currencyCode\": \"<string>\",\n          \"cents\": \"<integer>\"\n        },\n        \"paymentMethodName\": \"<string>\",\n        \"last4\": \"<string>\"\n      }\n    ],\n    \"timestamp\": \"<dateTime>\",\n    \"updated\": \"<dateTime>\",\n    \"buyer\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"address\": {\n        \"street1\": \"<string>\",\n        \"street2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"postalCode\": \"<string>\"\n      }\n    },\n    \"seller\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"address\": {\n        \"street1\": \"<string>\",\n        \"street2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"postalCode\": \"<string>\"\n      },\n      \"storefrontName\": \"<string>\"\n    }\n  },\n  \"format\": \"<string>\",\n  \"style\": \"modern\",\n  \"branding\": {\n    \"logoUrl\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81549fa5-9195-4c6b-8c99-7dff23cc1476",
+          "name": "Register a pre-printed receipt so that the client can securely retrieve the PDF copy.",
+          "request": {
+            "name": "Register a pre-printed receipt so that the client can securely retrieve the PDF copy.",
+            "description": {
+              "content": "Create pre-rendered receipt the invoice id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "render-link"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shareHash\": \"<string>\",\n  \"format\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e65faf75-156e-4bae-b755-607c669218cf",
+              "name": "Response that can be used to retrieve the receipt PDF.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "render-link"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shareHash\": \"<string>\",\n  \"format\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"http://YESRtjcSOm.vpzxkm0Gd\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "068c0d10-ce15-4cdf-8ffc-23ae964f1bf0",
+              "name": "Could not find rendered receipt.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "render-link"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shareHash\": \"<string>\",\n  \"format\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce6ebcc1-42b1-4629-8b92-bd83e70f8e8a",
+          "name": "Register a pre-printed receipt so that the client can securely retrieve the PDF copy.",
+          "request": {
+            "name": "Register a pre-printed receipt so that the client can securely retrieve the PDF copy.",
+            "description": {
+              "content": "Create pre-rendered receipt the invoice id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<uri>\",\n  \"kind\": \"<string>\",\n  \"group\": \"<string>\",\n  \"template\": \"<string>\",\n  \"maxAge\": \"P1D\",\n  \"recordsRetention\": \"P1M\",\n  \"minEntropy\": 20,\n  \"maxEntropy\": 64\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "18ba8f1f-43ad-4a85-88c3-47b7cac8287b",
+              "name": "Response that can be used to retrieve the receipt PDF.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\",\n  \"kind\": \"<string>\",\n  \"group\": \"<string>\",\n  \"template\": \"<string>\",\n  \"maxAge\": \"P1D\",\n  \"recordsRetention\": \"P1M\",\n  \"minEntropy\": 20,\n  \"maxEntropy\": 64\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"shortUrl\": \"http://UgfgxoksSVAMrWpmjujMaURghDQZzMaAx.lzogJPAeQohfWjlTf.7MKJ5QGxAKWE0qHqBt5dvZFP6rRbZuC0pkQHV\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7d8590a-b225-49e8-a84f-9f81f50d61fb",
+              "name": "Could not find rendered receipt.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\",\n  \"kind\": \"<string>\",\n  \"group\": \"<string>\",\n  \"template\": \"<string>\",\n  \"maxAge\": \"P1D\",\n  \"recordsRetention\": \"P1M\",\n  \"minEntropy\": 20,\n  \"maxEntropy\": 64\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://localhost",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0350638b-47f7-47a2-bce3-61f3f58f0686",
+    "name": "Django instant-invoice-share rendering API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The classical Django service that powers the marketplace and most invoicing functionality.",
+      "type": "text/plain"
+    }
+  }
+}

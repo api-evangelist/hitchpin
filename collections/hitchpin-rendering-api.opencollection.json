@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Django instant-invoice-share rendering API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "rendering",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Register a pre-printed receipt so that the client can securely retrieve the PDF copy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://localhost/render",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get user data by its id"
+        },
+        {
+          "info": {
+            "name": "Register a pre-printed receipt so that the client can securely retrieve the PDF copy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://localhost/render-link",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create pre-rendered receipt the invoice id."
+        },
+        {
+          "info": {
+            "name": "Register a pre-printed receipt so that the client can securely retrieve the PDF copy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://localhost/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create pre-rendered receipt the invoice id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

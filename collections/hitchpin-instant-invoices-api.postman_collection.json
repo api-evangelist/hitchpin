@@ -1,0 +1,991 @@
+{
+  "item": [
+    {
+      "id": "5d12a3c7-701d-46c8-82b7-c34d0465ae2a",
+      "name": "instant-invoices",
+      "description": {
+        "content": "Invoices created by a seller.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f8c565d3-8fa5-4541-b883-46aa314a9840",
+          "name": "list instant invoices",
+          "request": {
+            "name": "list instant invoices",
+            "description": {},
+            "url": {
+              "path": [
+                "instant-invoices",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; version=v2"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d0088930-c246-40d4-8013-4a5dab5bd087",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instant-invoices",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; version=v2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; version=v2"
+                }
+              ],
+              "body": "{\n  \"count\": 123,\n  \"results\": [\n    {\n      \"principal\": -9205841351103750000,\n      \"id\": 765,\n      \"title\": \"string\",\n      \"invoice_number\": 7499,\n      \"for_name\": \"string\",\n      \"state\": \"paid\",\n      \"total_owed\": 4490,\n      \"effective_seller_fee_percent\": \"-6.7\",\n      \"total_seller_fee\": 2001,\n      \"is_paid\": true,\n      \"attachments\": [\n        {\n          \"id\": 2897,\n          \"user\": 8686,\n          \"attachment_type\": \"document\",\n          \"image\": \"http://aalKzeNets.suqbG4AXUOYIVquA2ZfbRvb4ipb-ja42\",\n          \"document\": \"http://ENRkHmMmrzIcfNEtQcN.btfxb4+oOyUHg38-plIXGNCxQKs-r-WLXxn7Z3PLXdtP7mM5Wcx5\",\n          \"text\": \"string\",\n          \"local_identifier\": \"string\",\n          \"show_in_library\": true\n        },\n        {\n          \"id\": 9516,\n          \"user\": 8643,\n          \"attachment_type\": \"text\",\n          \"image\": \"https://FjkqEuJggKCYRbjrPoGhEszYAOXlYCkL.jlmuytVKHRIbCdrz\",\n          \"document\": \"https://CfyKVtjbdegfIspHLmh.ypyHnwwXaczJIt5yvviQJzAmKhNik-E9tQa\",\n          \"text\": \"string\",\n          \"local_identifier\": \"string\",\n          \"show_in_library\": false\n        }\n      ],\n      \"timestamp\": \"1987-08-30T14:10:44.838Z\",\n      \"updated\": \"2006-01-12T15:46:14.989Z\"\n    },\n    {\n      \"principal\": 3177275234961205000,\n      \"id\": 6442,\n      \"title\": \"string\",\n      \"invoice_number\": 6566,\n      \"for_name\": \"string\",\n      \"state\": \"pending\",\n      \"total_owed\": 6026,\n      \"effective_seller_fee_percent\": \"-1\",\n      \"total_seller_fee\": 68,\n      \"is_paid\": true,\n      \"attachments\": [\n        {\n          \"id\": 3893,\n          \"user\": 4766,\n          \"attachment_type\": \"document\",\n          \"image\": \"https://Rhsoy.xpzVa9iMF1wBqBTP,ey44Mn.m2GHV3VS98CQetGqU-,Rgic6+uP,\",\n          \"document\": \"https://gxcZttcbOMB.jtuLIelCZGxVS3cYXOkNQjOhTZfQBCDFvrcHS6wTvLtw1O\",\n          \"text\": \"string\",\n          \"local_identifier\": \"string\",\n          \"show_in_library\": false\n        },\n        {\n          \"id\": 896,\n          \"user\": 691,\n          \"attachment_type\": \"text\",\n          \"image\": \"https://jrBXsfMhxrcltDAiezoHbt.cvQcb3dOXKMI3VN.3,gxied2d5PhtAveM.2zadVeZC+nlz5+THjxvIIPGMg6c\",\n          \"document\": \"http://iWCHFMonMTFLNrWQ.aosehFrt4Cs0V1tSaFVx.dhl+\",\n          \"text\": \"string\",\n          \"local_identifier\": \"string\",\n          \"show_in_library\": false\n        }\n      ],\n      \"timestamp\": \"1997-05-17T09:13:34.726Z\",\n      \"updated\": \"2021-03-08T12:58:40.030Z\"\n    }\n  ],\n  \"next\": \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\": \"http://api.example.org/accounts/?offset=200&limit=100\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f3580ee-ab4a-4f65-9d5a-a6eca1669d75",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instant-invoices",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4738db22-66fd-4039-9f7e-c437ad511eb6",
+          "name": "create instant invoices",
+          "request": {
+            "name": "create instant invoices",
+            "description": {},
+            "url": {
+              "path": [
+                "instant-invoices",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; version=v2"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<long>\",\n  \"title\": \"<string>\",\n  \"for_name\": \"<string>\",\n  \"attachment_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6eb16792-eca3-4105-a1b1-07bfbfb1a339",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instant-invoices",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; version=v2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<long>\",\n  \"title\": \"<string>\",\n  \"for_name\": \"<string>\",\n  \"attachment_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; version=v2"
+                }
+              ],
+              "body": "{\n  \"principal\": -4907296760857197000,\n  \"id\": 8374,\n  \"title\": \"string\",\n  \"invoice_number\": 4265,\n  \"for_name\": \"string\",\n  \"state\": \"pending\",\n  \"total_owed\": 837,\n  \"effective_seller_fee_percent\": \"-7.6\",\n  \"total_seller_fee\": 2861,\n  \"is_paid\": true,\n  \"attachments\": [\n    {\n      \"id\": 4523,\n      \"user\": 2649,\n      \"attachment_type\": \"text\",\n      \"image\": \"http://OsexDOGaYNMpWoRdZhf.llvVXNQyjxQHrjPO+s0AbjNocv2-ZlDplHBX-QzbGnvxaInEd4j5QfVDx\",\n      \"document\": \"https://AEs.aexfCHlLoYzk77emfV6Iqi8EN9AkR3hvAfam1PdqJ\",\n      \"text\": \"string\",\n      \"local_identifier\": \"string\",\n      \"show_in_library\": false\n    },\n    {\n      \"id\": 2050,\n      \"user\": 5637,\n      \"attachment_type\": \"image\",\n      \"image\": \"http://CWiVTNcLKWqzNaxQfBds.syrJizwo0sR+5byXh9C-eRPDPZ2dEctgCPWMwDfSd0WHM7cgGusHEP\",\n      \"document\": \"http://hgmtWFkSepH.bnic0,w1xlOPNbiWoIIac\",\n      \"text\": \"string\",\n      \"local_identifier\": \"string\",\n      \"show_in_library\": true\n    }\n  ],\n  \"timestamp\": \"2017-03-07T13:48:35.459Z\",\n  \"updated\": \"1974-12-19T07:32:12.682Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d423cc2-5989-402a-aea3-97518856bd4b",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instant-invoices",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<long>\",\n  \"title\": \"<string>\",\n  \"for_name\": \"<string>\",\n  \"attachment_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98e82d09-4253-448e-a10c-69e187dc7674",
+          "name": "retrieve instant invoices",
+          "request": {
+            "name": "retrieve instant invoices",
+            "description": {},
+            "url": {
+              "path": [
+                "instant-invoices",
+                ":invoice_number",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invoice_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; version=v2"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "353da5e4-a2c6-4a00-a81d-991f6e30d2ca",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instant-invoices",
+                    ":invoice_number",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; version=v2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; version=v2"
+                }
+              ],
+              "body": "{\n  \"principal\": -4907296760857197000,\n  \"id\": 8374,\n  \"title\": \"string\",\n  \"invoice_number\": 4265,\n  \"for_name\": \"string\",\n  \"state\": \"pending\",\n  \"total_owed\": 837,\n  \"effective_seller_fee_percent\": \"-7.6\",\n  \"total_seller_fee\": 2861,\n  \"is_paid\": true,\n  \"attachments\": [\n    {\n      \"id\": 4523,\n      \"user\": 2649,\n      \"attachment_type\": \"text\",\n      \"image\": \"http://OsexDOGaYNMpWoRdZhf.llvVXNQyjxQHrjPO+s0AbjNocv2-ZlDplHBX-QzbGnvxaInEd4j5QfVDx\",\n      \"document\": \"https://AEs.aexfCHlLoYzk77emfV6Iqi8EN9AkR3hvAfam1PdqJ\",\n      \"text\": \"string\",\n      \"local_identifier\": \"string\",\n      \"show_in_library\": false\n    },\n    {\n      \"id\": 2050,\n      \"user\": 5637,\n      \"attachment_type\": \"image\",\n      \"image\": \"http://CWiVTNcLKWqzNaxQfBds.syrJizwo0sR+5byXh9C-eRPDPZ2dEctgCPWMwDfSd0WHM7cgGusHEP\",\n      \"document\": \"http://hgmtWFkSepH.bnic0,w1xlOPNbiWoIIac\",\n      \"text\": \"string\",\n      \"local_identifier\": \"string\",\n      \"show_in_library\": true\n    }\n  ],\n  \"timestamp\": \"2017-03-07T13:48:35.459Z\",\n  \"updated\": \"1974-12-19T07:32:12.682Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85a0445a-7556-4ed7-8243-8d9fef65944d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instant-invoices",
+                    ":invoice_number",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d81176e2-4814-488c-a6e5-fbbfe67ac352",
+          "name": "void instant invoice",
+          "request": {
+            "name": "void instant invoice",
+            "description": {
+              "content": "Action that allows the owner (seller) of an InstantInvoice to revoke it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "instant-invoices",
+                ":invoice_number",
+                "revoke",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invoice_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; version=v2"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "62294b23-07e7-42a0-b48a-225b8870e00d",
+              "name": "Invoice revoked.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instant-invoices",
+                    ":invoice_number",
+                    "revoke",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b8c85bd8-7a0a-4f72-9684-39ec9dc5499c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instant-invoices",
+                    ":invoice_number",
+                    "revoke",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; version=v2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; version=v2"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96299317-3f73-48fe-a511-faf96f7c4350",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instant-invoices",
+                    ":invoice_number",
+                    "revoke",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; version=v2"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; version=v2"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d01c787c-587c-4139-91fd-b60fbce5246c",
+          "name": "share instant invoice",
+          "request": {
+            "name": "share instant invoice",
+            "description": {
+              "content": "Action that allows the owner (seller) of an InstantInvoice to share it with a contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "instant-invoices",
+                ":invoice_number",
+                "share",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invoice_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; version=v2"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principal\": \"<long>\",\n  \"title\": \"<string>\",\n  \"for_name\": \"<string>\",\n  \"attachment_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "134d1760-1c9e-4f93-b60f-e6ea22d56590",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instant-invoices",
+                    ":invoice_number",
+                    "share",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; version=v2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<long>\",\n  \"title\": \"<string>\",\n  \"for_name\": \"<string>\",\n  \"attachment_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; version=v2"
+                }
+              ],
+              "body": "{\n  \"invoice\": {\n    \"title\": \"string\",\n    \"invoice_number\": 1686379324,\n    \"total_owed\": 5434,\n    \"for_name\": \"string\",\n    \"attachments\": [\n      {\n        \"user\": 3010,\n        \"id\": 4620,\n        \"attachment_type\": \"document\",\n        \"image\": \"http://CduXbXMKuLTmaHqkaajAx.oyptEiJwiE7t0Gt3nw6Za3,.Cg\",\n        \"document\": \"http://kIFWAU.aampILU8vkLZMaUQvQ5L3MjMSJdIiBDLmSctt2-3b6JMXxNJUzoZXJg1nSxhoux6hCRF+g\",\n        \"text\": \"string\",\n        \"local_identifier\": \"string\",\n        \"timestamp\": \"1988-07-29T01:19:10.446Z\",\n        \"updated\": \"2003-07-05T06:06:48.953Z\",\n        \"show_in_library\": true\n      },\n      {\n        \"user\": 2982,\n        \"id\": 3626,\n        \"attachment_type\": \"document\",\n        \"image\": \"http://sSlikEYsObKwAvLDBMcVpmGC.zqrnPRB\",\n        \"document\": \"https://ZfTVHDlKhLWyR.pkfkRLhDC,j2n\",\n        \"text\": \"string\",\n        \"local_identifier\": \"string\",\n        \"timestamp\": \"1972-04-07T04:33:31.392Z\",\n        \"updated\": \"2014-01-25T23:11:49.131Z\",\n        \"show_in_library\": true\n      }\n    ],\n    \"sender\": \"string\"\n  },\n  \"share_type\": \"email\",\n  \"share_hash\": \"string\",\n  \"share_link\": \"string\",\n  \"qr_code\": \"string\",\n  \"is_paid\": false,\n  \"is_pending\": false,\n  \"expires\": \"1970-12-22T14:18:21.489Z\",\n  \"timestamp\": \"1988-08-07T12:23:52.881Z\",\n  \"updated\": \"1974-12-01T08:28:34.297Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c7a6302-9b90-4bce-957d-d0c72d88583e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instant-invoices",
+                    ":invoice_number",
+                    "share",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; version=v2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<long>\",\n  \"title\": \"<string>\",\n  \"for_name\": \"<string>\",\n  \"attachment_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; version=v2"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b3625a6-064e-4934-a1c1-ef631830f0ee",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instant-invoices",
+                    ":invoice_number",
+                    "share",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; version=v2"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"principal\": \"<long>\",\n  \"title\": \"<string>\",\n  \"for_name\": \"<string>\",\n  \"attachment_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; version=v2"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://localhost",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "26b3d62f-71df-4bcf-8f4a-53cb110e7155",
+    "name": "Django instant-invoice-share instant-invoices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The classical Django service that powers the marketplace and most invoicing functionality.",
+      "type": "text/plain"
+    }
+  }
+}

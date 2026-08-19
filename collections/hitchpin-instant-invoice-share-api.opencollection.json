@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Django instant-invoice-share API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "instant-invoice-share",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "retrieve_shared_instant_invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/instant-invoice-share/:share_hash/",
+            "params": [
+              {
+                "name": "share_hash",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Used for viewing and paying shared InstantInvoices"
+        },
+        {
+          "info": {
+            "name": "pay_instant_invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://localhost/instant-invoice-share/:share_hash/pay/",
+            "params": [
+              {
+                "name": "share_hash",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Action that allows a guest or user to pay an InstantInvoice."
+        },
+        {
+          "info": {
+            "name": "get_instant_invoice_receipt",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/instant-invoice-share/:share_hash/receipt/",
+            "params": [
+              {
+                "name": "share_hash",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Action that returns a receipt if a paid InstantInvoice (via share)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

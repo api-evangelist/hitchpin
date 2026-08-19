@@ -1,12 +1,9 @@
 generated: '2026-07-19'
 method: derived
 status: candidate
-source: openapi/hitchpin-django-api-openapi.json, openapi/hitchpin-receipt-rendering-openapi.json,
-  openapi/hitchpin-url-shortener-openapi.json
-notes: >-
-  Candidate MCP tool surface derived one-to-one from HitchPin's published OpenAPI
-  operations. HitchPin publishes no hosted/remote MCP server today; this is a governance
-  starting point, not an official server.
+source: openapi/hitchpin-django-api-openapi.json, openapi/hitchpin-receipt-rendering-openapi.json, openapi/hitchpin-url-shortener-openapi.json
+notes: Candidate MCP tool surface derived one-to-one from HitchPin's published OpenAPI operations. HitchPin
+  publishes no hosted/remote MCP server today; this is a governance starting point, not an official server.
 server:
   name: hitchpin
   transport: http
@@ -44,3 +41,9 @@ tools:
 - name: ShortenUrl
   description: Create a short URL with optional expiration.
   source_operation: openapi/hitchpin-url-shortener-openapi.json#ShortenUrl
+deployment:
+  mode: none
+  verified: derived
+  tools: 11
+  checked: '2026-08-12'
+  source: catalog MCP census
