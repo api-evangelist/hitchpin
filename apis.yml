@@ -93,6 +93,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/hitchpin-capability-edges.yml
+  name: HitchPin Business Capability Map
 - type: Overlay
   url: overlays/hitchpin-django-api-overlay.yaml
 - type: Website

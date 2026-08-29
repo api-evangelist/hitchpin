@@ -1,0 +1,34 @@
+slug: hitchpin
+provider: HitchPin
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Agriculture & Food Production
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: instant-invoices
+  spec_file: hitchpin-instant-invoices-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.8
+  evidence: POST /instant-invoices/ create_instant_invoices; DELETE /instant-invoices/{invoice_number}/revoke/
+    void_instant_invoice
+  reason: Creation, listing, voiding and sharing of customer invoices is squarely customer invoicing /
+    accounts receivable management, independent of the agricultural marketplace context.
+- tag: instant-invoice-share
+  spec_file: hitchpin-instant-invoice-share-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.75
+  evidence: POST /instant-invoice-share/{share_hash}/pay/ pay_instant_invoice; GET .../receipt/ get_instant_invoice_receipt
+  reason: Shared invoice retrieval, buyer payment and receipt issuance are customer invoicing and cash
+    collection activities, i.e. accounts receivable operations for marketplace sellers.
