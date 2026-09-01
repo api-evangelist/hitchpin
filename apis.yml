@@ -81,7 +81,7 @@ apis:
   humanURL: https://github.com/HitchPin/hp-apis
   baseURL: https://apiv2.hitchpin.com
   tags:
-  - rendering
+  - Rendering
   tags_raw:
   - rendering
   properties:
