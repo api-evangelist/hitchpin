@@ -1,21 +1,19 @@
-openapi: 3.1.1
+openapi: 3.2.0
 info:
-  title: Django instant-invoice-share rendering API
-  description: The classical Django service that powers the marketplace and most invoicing functionality.
-  version: 2.0.0
+  title: Hitchpin Rendering API
+  version: 1.0.0
+  description: 'Operations tagged rendering across 2 of this provider''s published API definitions: hitchpin-receipt-rendering-openapi.json, hitchpin-url-shortener-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://localhost
-  description: Development
-- url: https://apiv2.sandbox.hitchpin.com
-  description: Sandbox
-- url: https://apiv2.staging.hitchpin.com
-  description: Staging
-- url: https://apiv2.demo.hitchpin.com
-  description: Demo
-- url: https://apiv2.hitchpin.com
-  description: Production
+- url: https://receipt-printing.staging.hitchpin.zone
+  description: Staging environment
+- url: https://receipt-printing.prod.hitchpin.zone
+  description: Production environment
+- url: https://staging.hitchp.in
+  description: Staging environment
+- url: https://hitchp.in
+  description: Production environment
 tags:
-- name: rendering
+- name: Rendering
 paths:
   /render:
     put:
@@ -30,9 +28,9 @@ paths:
           enum:
           - application/pdf
           - image/svg+xml
-      summary: Register a pre-printed receipt so that the client can securely retrieve the PDF copy.
+      summary: Register a pre-printed receipt so that the client can securely retrieve the PDF…
       tags:
-      - rendering
+      - Rendering
       requestBody:
         required: true
         content:
@@ -65,13 +63,18 @@ paths:
                 required:
                 - type
                 - message
+    servers:
+    - url: https://receipt-printing.staging.hitchpin.zone
+      description: Staging environment
+    - url: https://receipt-printing.prod.hitchpin.zone
+      description: Production environment
   /render-link:
     post:
       operationId: CreateReceiptUrl
       description: Create pre-rendered receipt the invoice id.
-      summary: Register a pre-printed receipt so that the client can securely retrieve the PDF copy.
+      summary: Register a pre-printed receipt so that the client can securely retrieve the PDF…
       tags:
-      - rendering
+      - Rendering
       requestBody:
         content:
           application/json:
@@ -98,13 +101,18 @@ paths:
                 required:
                 - type
                 - message
+    servers:
+    - url: https://receipt-printing.staging.hitchpin.zone
+      description: Staging environment
+    - url: https://receipt-printing.prod.hitchpin.zone
+      description: Production environment
   /:
     post:
       operationId: ShortenUrl
       description: Create pre-rendered receipt the invoice id.
-      summary: Register a pre-printed receipt so that the client can securely retrieve the PDF copy.
+      summary: Register a pre-printed receipt so that the client can securely retrieve the PDF…
       tags:
-      - rendering
+      - Rendering
       requestBody:
         content:
           application/json:
@@ -123,15 +131,13 @@ paths:
             application/json:
               schema:
                 $ref: ../common/ProblemDetails.schema.json
+    servers:
+    - url: https://staging.hitchp.in
+      description: Staging environment
+    - url: https://hitchp.in
+      description: Production environment
 components:
   schemas:
-    External:
-      type: string
-      default: P1D
-      description: How long before the link stops working.
-      externalDocs:
-        description: Test suite for valid duration values.
-        url: https://github.com/json-schema-org/JSON-Schema-Test-Suite/blob/main/tests/draft2020-12/optional/format/duration.json
     CreateRenderedReceiptUrlResponse:
       type: object
       properties:
@@ -141,14 +147,6 @@ components:
       required:
       - url
       description: Response with a URL to a previously rendered receipt.
-    ShortenUrlResponse:
-      type: object
-      properties:
-        shortUrl:
-          type: string
-          format: uri
-      required:
-      - shortUrl
     RenderReceiptRequest:
       type: object
       properties:
@@ -412,6 +410,21 @@ components:
       - shareHash
       - format
       description: Request to get the URL of a previously rendered receipt.
+    External:
+      type: string
+      default: P1D
+      description: How long before the link stops working.
+      externalDocs:
+        description: Test suite for valid duration values.
+        url: https://github.com/json-schema-org/JSON-Schema-Test-Suite/blob/main/tests/draft2020-12/optional/format/duration.json
+    ShortenUrlResponse:
+      type: object
+      properties:
+        shortUrl:
+          type: string
+          format: uri
+      required:
+      - shortUrl
     ShortenUrlRequest:
       type: object
       properties:
@@ -451,16 +464,9 @@ components:
       - kind
       - group
       - template
-  securitySchemes:
-    cookieAuth:
-      type: apiKey
-      in: cookie
-      name: sessionid
-    tokenAuth:
-      type: apiKey
-      in: header
-      name: Authorization
-      description: Token-based authentication with required prefix "Token"
+x-refined-from:
+- hitchpin-receipt-rendering-openapi.json
+- hitchpin-url-shortener-openapi.json
 x-speakeasy-retries:
   strategy: backoff
   backoff:

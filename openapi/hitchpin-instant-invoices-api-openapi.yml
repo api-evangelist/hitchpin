@@ -1,6 +1,6 @@
-openapi: 3.1.1
+openapi: 3.2.0
 info:
-  title: Django instant-invoice-share instant-invoices API
+  title: Django Instant Invoices API
   description: The classical Django service that powers the marketplace and most invoicing functionality.
   version: 2.0.0
 servers:
@@ -48,6 +48,8 @@ paths:
           description: ''
         '404':
           description: Not Found
+      summary: List instant invoices
+      x-summary-source: derived
     post:
       operationId: create_instant_invoices
       parameters: []
@@ -71,6 +73,8 @@ paths:
           description: ''
         '404':
           description: Not Found
+      summary: Create instant invoices
+      x-summary-source: derived
   /instant-invoices/{invoice_number}/:
     get:
       operationId: retrieve_instant_invoices
@@ -99,6 +103,8 @@ paths:
           description: ''
         '404':
           description: Not Found
+      summary: Retrieve instant invoices
+      x-summary-source: derived
   /instant-invoices/{invoice_number}/revoke/:
     delete:
       operationId: void_instant_invoice
@@ -152,6 +158,8 @@ paths:
           start: 95
           end: 111
         container: InstantInvoiceViewSet
+      summary: Void instant invoice
+      x-summary-source: derived
   /instant-invoices/{invoice_number}/share/:
     post:
       operationId: share_instant_invoice
@@ -215,80 +223,14 @@ paths:
           start: 112
           end: 132
         container: InstantInvoiceViewSet
+      summary: Share instant invoice
+      x-summary-source: derived
 components:
   schemas:
-    ShareableInstantInvoice:
-      type: object
-      properties:
-        title:
-          type: string
-        invoice_number:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        total_owed:
-          type: integer
-          readOnly: true
-        for_name:
-          type: string
-        attachments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Nested'
-          readOnly: true
-        sender:
-          type: string
-          readOnly: true
-    PaginatedInstantInvoiceList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/InstantInvoice'
-    InstantInvoiceRequest:
-      type: object
-      properties:
-        title:
-          type: string
-        principal:
-          type: integer
-          maximum: 9223372036854776000
-          minimum: -9223372036854776000
-          format: int64
-        for_name:
-          type: string
-        attachment_ids:
-          type: array
-          items:
-            type: integer
-            writeOnly: true
-          writeOnly: true
-      required:
-      - principal
-    Attachment:
+    Nested:
       type: object
       properties:
         id:
-          type: integer
-          readOnly: true
-        user:
           type: integer
           readOnly: true
         attachment_type:
@@ -314,8 +256,43 @@ components:
         local_identifier:
           type: string
           maxLength: 256
+        timestamp:
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          type: string
+          format: date-time
+          readOnly: true
         show_in_library:
           type: boolean
+        user:
+          type: integer
+      required:
+      - user
+    PaginatedInstantInvoiceList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/InstantInvoice'
     InstantInvoiceShare:
       type: object
       properties:
@@ -366,10 +343,35 @@ components:
           type: string
           format: date-time
           readOnly: true
-    Nested:
+    ShareableInstantInvoice:
+      type: object
+      properties:
+        title:
+          type: string
+        invoice_number:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        total_owed:
+          type: integer
+          readOnly: true
+        for_name:
+          type: string
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Nested'
+          readOnly: true
+        sender:
+          type: string
+          readOnly: true
+    Attachment:
       type: object
       properties:
         id:
+          type: integer
+          readOnly: true
+        user:
           type: integer
           readOnly: true
         attachment_type:
@@ -395,20 +397,8 @@ components:
         local_identifier:
           type: string
           maxLength: 256
-        timestamp:
-          type: string
-          format: date-time
-          readOnly: true
-        updated:
-          type: string
-          format: date-time
-          readOnly: true
         show_in_library:
           type: boolean
-        user:
-          type: integer
-      required:
-      - user
     InstantInvoice:
       type: object
       properties:
@@ -475,6 +465,26 @@ components:
           type: string
           format: date-time
           readOnly: true
+      required:
+      - principal
+    InstantInvoiceRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        principal:
+          type: integer
+          maximum: 9223372036854776000
+          minimum: -9223372036854776000
+          format: int64
+        for_name:
+          type: string
+        attachment_ids:
+          type: array
+          items:
+            type: integer
+            writeOnly: true
+          writeOnly: true
       required:
       - principal
   securitySchemes:

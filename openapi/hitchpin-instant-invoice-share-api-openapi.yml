@@ -1,6 +1,6 @@
-openapi: 3.1.1
+openapi: 3.2.0
 info:
-  title: Django instant-invoice-share API
+  title: Django Instant Invoice Share API
   description: The classical Django service that powers the marketplace and most invoicing functionality.
   version: 2.0.0
 servers:
@@ -72,6 +72,8 @@ paths:
           start: 146
           end: 156
         container: InstantInvoiceShareViewSet
+      summary: Retrieve shared instant invoice
+      x-summary-source: derived
   /instant-invoice-share/{share_hash}/pay/:
     post:
       operationId: pay_instant_invoice
@@ -130,6 +132,8 @@ paths:
           start: 165
           end: 196
         container: InstantInvoiceShareViewSet
+      summary: Pay instant invoice
+      x-summary-source: derived
   /instant-invoice-share/{share_hash}/receipt/:
     get:
       operationId: get_instant_invoice_receipt
@@ -183,8 +187,131 @@ paths:
           start: 249
           end: 281
         container: InstantInvoiceShareViewSet
+      summary: Get instant invoice receipt
+      x-summary-source: derived
 components:
   schemas:
+    Nested:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        attachment_type:
+          enum:
+          - document
+          - image
+          - text
+          type: string
+          description: '* `document` - Document (PDF)
+
+            * `image` - Image (jpg, png)
+
+            * `text` - Plain text'
+          x-spec-enum-id: 58640327c5314d15
+        image:
+          type: string
+          format: uri
+        document:
+          type: string
+          format: uri
+        text:
+          type: string
+        local_identifier:
+          type: string
+          maxLength: 256
+        timestamp:
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          type: string
+          format: date-time
+          readOnly: true
+        show_in_library:
+          type: boolean
+        user:
+          type: integer
+      required:
+      - user
+    InstantInvoiceShare:
+      type: object
+      properties:
+        invoice:
+          allOf:
+          - $ref: '#/components/schemas/ShareableInstantInvoice'
+          readOnly: true
+        share_type:
+          enum:
+          - email
+          - sms
+          - link
+          - qr
+          - ''
+          type: string
+          description: '* `email` - Email
+
+            * `sms` - SMS
+
+            * `link` - Link
+
+            * `qr` - QR Code'
+          x-spec-enum-id: b538a5aac69dcfe7
+        share_hash:
+          type: string
+          readOnly: true
+        share_link:
+          type: string
+          readOnly: true
+        qr_code:
+          type: string
+          readOnly: true
+        is_paid:
+          type: boolean
+          readOnly: true
+        is_pending:
+          type: boolean
+          readOnly: true
+        expires:
+          type: string
+          format: date-time
+          readOnly: true
+        timestamp:
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          type: string
+          format: date-time
+          readOnly: true
+    InstantInvoiceShareRequest:
+      type: object
+      properties:
+        share_type:
+          enum:
+          - email
+          - sms
+          - link
+          - qr
+          - ''
+          type: string
+          description: '* `email` - Email
+
+            * `sms` - SMS
+
+            * `link` - Link
+
+            * `qr` - QR Code'
+          x-spec-enum-id: b538a5aac69dcfe7
+        share_contact_email:
+          type: string
+          format: email
+          writeOnly: true
+          default: ''
+        share_contact_phone:
+          type: string
+          writeOnly: true
+          default: ''
     ShareableInstantInvoice:
       type: object
       properties:
@@ -239,127 +366,6 @@ components:
           type: string
           format: date-time
           readOnly: true
-    InstantInvoiceShareRequest:
-      type: object
-      properties:
-        share_type:
-          enum:
-          - email
-          - sms
-          - link
-          - qr
-          - ''
-          type: string
-          description: '* `email` - Email
-
-            * `sms` - SMS
-
-            * `link` - Link
-
-            * `qr` - QR Code'
-          x-spec-enum-id: b538a5aac69dcfe7
-        share_contact_email:
-          type: string
-          format: email
-          writeOnly: true
-          default: ''
-        share_contact_phone:
-          type: string
-          writeOnly: true
-          default: ''
-    InstantInvoiceShare:
-      type: object
-      properties:
-        invoice:
-          allOf:
-          - $ref: '#/components/schemas/ShareableInstantInvoice'
-          readOnly: true
-        share_type:
-          enum:
-          - email
-          - sms
-          - link
-          - qr
-          - ''
-          type: string
-          description: '* `email` - Email
-
-            * `sms` - SMS
-
-            * `link` - Link
-
-            * `qr` - QR Code'
-          x-spec-enum-id: b538a5aac69dcfe7
-        share_hash:
-          type: string
-          readOnly: true
-        share_link:
-          type: string
-          readOnly: true
-        qr_code:
-          type: string
-          readOnly: true
-        is_paid:
-          type: boolean
-          readOnly: true
-        is_pending:
-          type: boolean
-          readOnly: true
-        expires:
-          type: string
-          format: date-time
-          readOnly: true
-        timestamp:
-          type: string
-          format: date-time
-          readOnly: true
-        updated:
-          type: string
-          format: date-time
-          readOnly: true
-    Nested:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        attachment_type:
-          enum:
-          - document
-          - image
-          - text
-          type: string
-          description: '* `document` - Document (PDF)
-
-            * `image` - Image (jpg, png)
-
-            * `text` - Plain text'
-          x-spec-enum-id: 58640327c5314d15
-        image:
-          type: string
-          format: uri
-        document:
-          type: string
-          format: uri
-        text:
-          type: string
-        local_identifier:
-          type: string
-          maxLength: 256
-        timestamp:
-          type: string
-          format: date-time
-          readOnly: true
-        updated:
-          type: string
-          format: date-time
-          readOnly: true
-        show_in_library:
-          type: boolean
-        user:
-          type: integer
-      required:
-      - user
   securitySchemes:
     cookieAuth:
       type: apiKey

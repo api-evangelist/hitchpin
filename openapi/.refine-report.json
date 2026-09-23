@@ -1,9 +1,9 @@
 {
   "provider": "hitchpin",
   "sources": [
-    "hitchpin-instant-invoice-share-api-openapi.yml",
-    "hitchpin-instant-invoices-api-openapi.yml",
-    "hitchpin-rendering-api-openapi.yml"
+    "_original/hitchpin-django-api-openapi.json",
+    "_original/hitchpin-receipt-rendering-openapi.json",
+    "_original/hitchpin-url-shortener-openapi.json"
   ],
   "outputs": [
     "hitchpin-instant-invoice-share-api-openapi.yml",
@@ -13,6 +13,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "hitchpin-django-api-openapi.json: upgraded openapi 3.1.1 -> OpenAPI 3.2.0",
+    "hitchpin-receipt-rendering-openapi.json: upgraded openapi 3.1.1 -> OpenAPI 3.2.0",
+    "hitchpin-receipt-rendering-openapi.json: declared missing tag: rendering",
+    "hitchpin-url-shortener-openapi.json: upgraded openapi 3.1.1 -> OpenAPI 3.2.0",
+    "hitchpin-url-shortener-openapi.json: declared missing tag: rendering",
+    "tag 'rendering' spans 2 source specs (hitchpin-receipt-rendering-openapi.json, hitchpin-url-shortener-openapi.json): per-path servers applied",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "hitchpin-instant-invoice-share-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "hitchpin-instant-invoices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "hitchpin-rendering-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
