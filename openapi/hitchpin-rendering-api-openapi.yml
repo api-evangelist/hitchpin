@@ -138,6 +138,23 @@ paths:
       description: Production environment
 components:
   schemas:
+    CreateRenderedReceiptUrlRequest:
+      type: object
+      properties:
+        shareHash:
+          type: string
+        format:
+          anyOf:
+          - type: string
+            enum:
+            - pdf
+          - type: string
+            enum:
+            - svg
+      required:
+      - shareHash
+      - format
+      description: Request to get the URL of a previously rendered receipt.
     CreateRenderedReceiptUrlResponse:
       type: object
       properties:
@@ -393,30 +410,6 @@ components:
       required:
       - receipt
       description: Request to render a receipt.
-    CreateRenderedReceiptUrlRequest:
-      type: object
-      properties:
-        shareHash:
-          type: string
-        format:
-          anyOf:
-          - type: string
-            enum:
-            - pdf
-          - type: string
-            enum:
-            - svg
-      required:
-      - shareHash
-      - format
-      description: Request to get the URL of a previously rendered receipt.
-    External:
-      type: string
-      default: P1D
-      description: How long before the link stops working.
-      externalDocs:
-        description: Test suite for valid duration values.
-        url: https://github.com/json-schema-org/JSON-Schema-Test-Suite/blob/main/tests/draft2020-12/optional/format/duration.json
     ShortenUrlResponse:
       type: object
       properties:
@@ -464,6 +457,13 @@ components:
       - kind
       - group
       - template
+    External:
+      type: string
+      default: P1D
+      description: How long before the link stops working.
+      externalDocs:
+        description: Test suite for valid duration values.
+        url: https://github.com/json-schema-org/JSON-Schema-Test-Suite/blob/main/tests/draft2020-12/optional/format/duration.json
 x-refined-from:
 - hitchpin-receipt-rendering-openapi.json
 - hitchpin-url-shortener-openapi.json

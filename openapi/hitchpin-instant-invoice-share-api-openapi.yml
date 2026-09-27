@@ -191,6 +191,28 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ShareableInstantInvoice:
+      type: object
+      properties:
+        title:
+          type: string
+        invoice_number:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        total_owed:
+          type: integer
+          readOnly: true
+        for_name:
+          type: string
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Nested'
+          readOnly: true
+        sender:
+          type: string
+          readOnly: true
     Nested:
       type: object
       properties:
@@ -234,6 +256,34 @@ components:
           type: integer
       required:
       - user
+    InstantInvoiceShareRequest:
+      type: object
+      properties:
+        share_type:
+          enum:
+          - email
+          - sms
+          - link
+          - qr
+          - ''
+          type: string
+          description: '* `email` - Email
+
+            * `sms` - SMS
+
+            * `link` - Link
+
+            * `qr` - QR Code'
+          x-spec-enum-id: b538a5aac69dcfe7
+        share_contact_email:
+          type: string
+          format: email
+          writeOnly: true
+          default: ''
+        share_contact_phone:
+          type: string
+          writeOnly: true
+          default: ''
     InstantInvoiceShare:
       type: object
       properties:
@@ -283,56 +333,6 @@ components:
         updated:
           type: string
           format: date-time
-          readOnly: true
-    InstantInvoiceShareRequest:
-      type: object
-      properties:
-        share_type:
-          enum:
-          - email
-          - sms
-          - link
-          - qr
-          - ''
-          type: string
-          description: '* `email` - Email
-
-            * `sms` - SMS
-
-            * `link` - Link
-
-            * `qr` - QR Code'
-          x-spec-enum-id: b538a5aac69dcfe7
-        share_contact_email:
-          type: string
-          format: email
-          writeOnly: true
-          default: ''
-        share_contact_phone:
-          type: string
-          writeOnly: true
-          default: ''
-    ShareableInstantInvoice:
-      type: object
-      properties:
-        title:
-          type: string
-        invoice_number:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        total_owed:
-          type: integer
-          readOnly: true
-        for_name:
-          type: string
-        attachments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Nested'
-          readOnly: true
-        sender:
-          type: string
           readOnly: true
     InstantInvoiceReceipt:
       type: object
