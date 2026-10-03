@@ -155,15 +155,6 @@ components:
       - shareHash
       - format
       description: Request to get the URL of a previously rendered receipt.
-    CreateRenderedReceiptUrlResponse:
-      type: object
-      properties:
-        url:
-          type: string
-          format: uri
-      required:
-      - url
-      description: Response with a URL to a previously rendered receipt.
     RenderReceiptRequest:
       type: object
       properties:
@@ -410,6 +401,15 @@ components:
       required:
       - receipt
       description: Request to render a receipt.
+    CreateRenderedReceiptUrlResponse:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
+      description: Response with a URL to a previously rendered receipt.
     ShortenUrlResponse:
       type: object
       properties:
