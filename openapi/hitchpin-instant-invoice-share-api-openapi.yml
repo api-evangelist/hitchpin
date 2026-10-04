@@ -191,6 +191,34 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    InstantInvoiceShareRequest:
+      type: object
+      properties:
+        share_type:
+          enum:
+          - email
+          - sms
+          - link
+          - qr
+          - ''
+          type: string
+          description: '* `email` - Email
+
+            * `sms` - SMS
+
+            * `link` - Link
+
+            * `qr` - QR Code'
+          x-spec-enum-id: b538a5aac69dcfe7
+        share_contact_email:
+          type: string
+          format: email
+          writeOnly: true
+          default: ''
+        share_contact_phone:
+          type: string
+          writeOnly: true
+          default: ''
     InstantInvoiceShare:
       type: object
       properties:
@@ -232,38 +260,6 @@ components:
         expires:
           type: string
           format: date-time
-          readOnly: true
-        timestamp:
-          type: string
-          format: date-time
-          readOnly: true
-        updated:
-          type: string
-          format: date-time
-          readOnly: true
-    InstantInvoiceReceipt:
-      type: object
-      properties:
-        invoice:
-          allOf:
-          - $ref: '#/components/schemas/ShareableInstantInvoice'
-          readOnly: true
-        payment_objects:
-          type: array
-          items:
-            type: object
-            properties:
-              amount:
-                type: integer
-                minimum: 1
-              last4:
-                type: string
-                pattern: '[0-9]{4}'
-              payment_method_name:
-                type: string
-            required:
-            - amount
-            - last4
           readOnly: true
         timestamp:
           type: string
@@ -316,34 +312,38 @@ components:
           type: integer
       required:
       - user
-    InstantInvoiceShareRequest:
+    InstantInvoiceReceipt:
       type: object
       properties:
-        share_type:
-          enum:
-          - email
-          - sms
-          - link
-          - qr
-          - ''
+        invoice:
+          allOf:
+          - $ref: '#/components/schemas/ShareableInstantInvoice'
+          readOnly: true
+        payment_objects:
+          type: array
+          items:
+            type: object
+            properties:
+              amount:
+                type: integer
+                minimum: 1
+              last4:
+                type: string
+                pattern: '[0-9]{4}'
+              payment_method_name:
+                type: string
+            required:
+            - amount
+            - last4
+          readOnly: true
+        timestamp:
           type: string
-          description: '* `email` - Email
-
-            * `sms` - SMS
-
-            * `link` - Link
-
-            * `qr` - QR Code'
-          x-spec-enum-id: b538a5aac69dcfe7
-        share_contact_email:
+          format: date-time
+          readOnly: true
+        updated:
           type: string
-          format: email
-          writeOnly: true
-          default: ''
-        share_contact_phone:
-          type: string
-          writeOnly: true
-          default: ''
+          format: date-time
+          readOnly: true
     ShareableInstantInvoice:
       type: object
       properties:
