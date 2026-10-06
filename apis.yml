@@ -44,7 +44,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-19'
+modified: '2026-10-06'
 tags:
 - Company
 - Marketplace
@@ -94,6 +94,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- url: https://www.hitchpin.com/news/
+  type: Blog
 - type: CapabilityMap
   url: capabilities/hitchpin-capability-edges.yml
   name: HitchPin Business Capability Map
